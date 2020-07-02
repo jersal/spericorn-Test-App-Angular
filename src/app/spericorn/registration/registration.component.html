@@ -30,12 +30,12 @@
         <mat-form-field>
           <mat-label>Password</mat-label>
           <input matInput autocomplete="off" type="password" [(ngModel)]="regObj.password" name="password"
-            #password="ngModel" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8}"
+            #password="ngModel" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,16}"
             (ngModelChange)="setPasswd()" required>
         </mat-form-field>
         <div *ngIf="password?.touched || password?.dirty">
-          <div *ngIf="password.errors?.pattern" class="text-danger">should have a lowercase,uppercase, and special
-            symbol with 8 characters</div>
+          <div *ngIf="password.errors?.pattern" class="text-danger wd">should have a lowercase,uppercase, and special
+            symbol with atleast 8 characters</div>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
           <input matInput autocomplete="off" type="password" [(ngModel)]="regObj.confirmPassword" name="confirmPassword"
             (ngModelChange)="confrmPasswd()" required>
         </mat-form-field>
-        <div *ngIf="check==false"><span class="text-danger">Passwords does not match</span></div>
+        <div *ngIf="check==false"><span class="text-danger ">Passwords does not match</span></div>
       </div>
     </div>
     <div class="row">

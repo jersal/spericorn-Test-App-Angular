@@ -7,7 +7,7 @@
        </div>
        <div>
          <h5>Username</h5>
-         <input class="input" type="text" placeholder="Username" #uname="ngModel" name="uname" id="uname"
+         <input class="input" type="text" placeholder="Username or Email" #uname="ngModel" name="uname" id="uname"
            [(ngModel)]="loginObj.email" autocomplete="off" required>
          <div *ngIf="loginForm.submitted && uname.errors&& uname.invalid" class="text-danger">
            <div class="req-msg" *ngIf="uname.errors?.required">Username Required</div>
@@ -27,7 +27,7 @@
          </div>
        </div>
      </div>
-     <input type="submit" class="btn" value="Login" (click)="login(loginForm)">
+     <input type="submit" class="btn m-t" value="Login" (click)="login(loginForm)" >
      <span (click)="gotoReg()">You dont have an account ? Register here</span>
    </form>
  </div>
