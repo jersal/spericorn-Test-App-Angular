@@ -1,0 +1,80 @@
+<div class="jumbotron text-center bg">
+  <h2>Registration</h2>
+</div>
+<form #regForm="ngForm" autocomplete="off" novalidate>
+  <div class=" text-center mrg-t">
+    <div class="row">
+      <div class="col-lg-12 col-md-6-12wdt">
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput autocomplete="off" [(ngModel)]="regObj.username" #uname="ngModel" name="uname" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 wdt">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput autocomplete="off" [(ngModel)]="regObj.email" #email="ngModel" name="email"
+            pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" autocomplete="off" required>
+        </mat-form-field>
+        <div *ngIf="email?.touched || email?.dirty">
+          <div *ngIf="email.errors?.pattern" class="text-danger">invalid email</div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="row">
+      <div class="col-lg-12 wdt">
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput autocomplete="off" type="password" [(ngModel)]="regObj.password" name="password"
+            #password="ngModel" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8}"
+            (ngModelChange)="setPasswd()" required>
+        </mat-form-field>
+        <div *ngIf="password?.touched || password?.dirty">
+          <div *ngIf="password.errors?.pattern" class="text-danger">should have a lowercase,uppercase, and special
+            symbol with 8 characters</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 wdt">
+        <mat-form-field>
+          <mat-label>Confirm Password</mat-label>
+          <input matInput autocomplete="off" type="password" [(ngModel)]="regObj.confirmPassword" name="confirmPassword"
+            (ngModelChange)="confrmPasswd()" required>
+        </mat-form-field>
+        <div *ngIf="check==false"><span class="text-danger">Passwords does not match</span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 wdt">
+        <mat-form-field>
+          <mat-label>Phone</mat-label>
+          <input matInput autocomplete="off" type="number" [(ngModel)]="regObj.phone" name="phone"
+            pattern="^((\\+91-?)|0)?[0-9]{10}$" #phone="ngModel" maxlength="10" onkeydown="return event.keyCode !== 69"
+            required>
+        </mat-form-field>
+        <div *ngIf="phone?.touched || phone?.dirty">
+          <div *ngIf="phone.errors?.pattern" class="text-danger">Enter valid 10 digit phone number</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xl-12 mt-4">
+        <button type="submit" class="btn btn-success m-r" (click)="validateEmail(regForm)">Register</button>
+        <button type="button" class="btn btn-danger" (click)="reset()">Reset</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-12 mt-4">       
+        <span class="highlight"(click)="gotoLogin()">You already have an account ? Login here</span>
+
+      </div>
+    </div>
+
+  </div>
+</form>

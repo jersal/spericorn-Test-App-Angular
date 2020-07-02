@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~font-awesome/css/font-awesome.css";
+
+
+
+html, body { height: 100%; }
+body { margin: 0;     font-family: 'Poppins',sans-serif;
+}
+
+
+h2{
+  font-size: 2.9rem;
+  text-transform: uppercase;   
+  color: #333;
+  font-family: 'Poppins',sans-serif;
+}
+.bg{
+    background-color: #fff !important;
+}
+
+.wdt{
+  width: 70%;
+}
+.btn-success{
+  background-color: #32be8f;
+  margin-left: 40px;
+}
+
+
+.toast-success {
+  background-color: #32be8f;
+}
+.toast-error {
+  background-color: #e25f58;
+}
+.toast-warning {
+  background-color: #e2c940;
+}
+.toast-info {
+  background-color: #8e89dc;
+}
+.highlight{
+  display: block;
+  text-decoration: none;color: #999;
+  font-size: 0.9rem;
+  transition: .3s;
+}
+
+.highlight:hover{
+  color: #38d39f;
+  cursor: pointer;
+
+}
